@@ -152,6 +152,7 @@ function App() {
   var [error, setError] = useState('#DC362E');
   var [neutral, setNeutral] = useState('#79767D');
   var [neutralVariant, setNeutralVariant] = useState('#79747E');
+  var [custom, setCustom] = useState('#2a5000');
 
   var primaryHexColorsByTone = convertToTonalPalette(primary);
   var secondaryHexColorsByTone = convertToTonalPalette(secondary);
@@ -160,28 +161,32 @@ function App() {
   var neutralHexColorsByTone = convertToTonalPalette(neutral);
   var neutralHexColorsByToneForSurface = convertToSurfaceTonalPalette(neutral);
   var neutralVariantHexColorsByTone = convertToTonalPalette(neutralVariant);
+  var customHexColorsByTone = convertToTonalPalette(custom);
 
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer variant="permanent">
         <List>
           <DrawerListItem tooltip="Primary" color={primary} colorChanged={setPrimary}>
-            <ColorCircle pixels={36} color={primary} />
+            <ColorCircle pixels={36} color={primary} disableCopy />
           </DrawerListItem>
           <DrawerListItem tooltip="Secondary" color={secondary} colorChanged={setSecondary}>
-            <ColorCircle pixels={36} color={secondary} />
+            <ColorCircle pixels={36} color={secondary} disableCopy />
           </DrawerListItem>
           <DrawerListItem tooltip="Tertiary" color={tertiary} colorChanged={setTertiary}>
-            <ColorCircle pixels={36} color={tertiary} />
+            <ColorCircle pixels={36} color={tertiary} disableCopy />
           </DrawerListItem>
           <DrawerListItem tooltip="Error" color={error} colorChanged={setError}>
-            <ColorCircle pixels={36} color={error} />
+            <ColorCircle pixels={36} color={error} disableCopy />
           </DrawerListItem>
           <DrawerListItem tooltip="Neutral" color={neutral} colorChanged={setNeutral}>
-            <ColorCircle pixels={36} color={neutral} />
+            <ColorCircle pixels={36} color={neutral} disableCopy />
           </DrawerListItem>
           <DrawerListItem tooltip="Neutral Variant" color={neutralVariant} colorChanged={setNeutralVariant}>
-            <ColorCircle pixels={36} color={neutralVariant} />
+            <ColorCircle pixels={36} color={neutralVariant} disableCopy />
+          </DrawerListItem>
+          <DrawerListItem tooltip="Custom" color={custom} colorChanged={setCustom}>
+            <ColorCircle pixels={36} color={custom} disableCopy />
           </DrawerListItem>
         </List>
       </Drawer>
@@ -210,6 +215,7 @@ function App() {
                 <ConfiguredColorSelectorWithPalette color={error} text={"Error"} pixels={pixels} setColor={setError} hexColorsByTone={errorHexColorsByTone} />
                 <ConfiguredColorSelectorWithPalette color={neutral} text={"Neutral"} pixels={pixels} setColor={setNeutral} hexColorsByTone={neutralHexColorsByTone} />
                 <ConfiguredColorSelectorWithPalette color={neutralVariant} text={"Neutral Variant"} pixels={pixels} setColor={setNeutralVariant} hexColorsByTone={neutralVariantHexColorsByTone} />
+                <ConfiguredColorSelectorWithPalette color={custom} text={"Custom"} pixels={pixels} setColor={setCustom} hexColorsByTone={customHexColorsByTone} />
               </Box>
             </Container>
           </AccordionDetails>
@@ -293,6 +299,8 @@ function App() {
                 surfaceContainerHigh={neutralHexColorsByToneForSurface[17]}
                 error={errorHexColorsByTone[80]}
                 onError={errorHexColorsByTone[20]}
+                custom={customHexColorsByTone[80]}
+                onCustom={customHexColorsByTone[20]}
               />
             </Grid>
             <Grid item xs={6}>
@@ -311,6 +319,8 @@ function App() {
                 surfaceContainerHigh={neutralHexColorsByToneForSurface[92]}
                 error={errorHexColorsByTone[40]}
                 onError={errorHexColorsByTone[100]}
+                custom={customHexColorsByTone[40]}
+                onCustom={customHexColorsByTone[100]}
               />
             </Grid>
           </Grid>

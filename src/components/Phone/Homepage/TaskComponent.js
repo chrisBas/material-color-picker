@@ -4,7 +4,7 @@ import Widgets from "@mui/icons-material/Widgets";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-function TaskComponent({ task, secondary, onSecondary, ratio = 1, error, onError, isDone = false }) {
+function TaskComponent({ task, secondary, onSecondary, ratio = 1, error, onError, custom, onCustom, isDone = false }) {
     // box shadow reference:
     // https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations
     const boxShadowDp2 = "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)";
@@ -27,8 +27,8 @@ function TaskComponent({ task, secondary, onSecondary, ratio = 1, error, onError
                     height={`${36 * ratio}px`}
                     width={`${36 * ratio}px`}
                     borderRadius={`${36 * ratio}px`}
-                    backgroundColor={isDone ? "#205107" : error}
-                    color={isDone ? "#B8F397" : onError}
+                    backgroundColor={isDone ? custom : error}
+                    color={isDone ? onCustom : onError}
                     display="flex"
                     justifyContent="center"
                     alignItems="center"

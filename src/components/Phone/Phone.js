@@ -6,7 +6,7 @@ import PhoneStatusBar from "./PhoneStatusBar";
 import TaskListComponent from "./Homepage/TaskListComponent";
 import PhoneTopAppBar from "./PhoneTopAppBar";
 
-function Phone({ primary, onPrimary, primaryContainer, onPrimaryContainer, secondary, onSecondary, surface, onSurface, surfaceContainer, onSurfaceContainer, surfaceContainerHigh, error, onError }) {
+function Phone({ primary, onPrimary, primaryContainer, onPrimaryContainer, secondary, onSecondary, surface, onSurface, surfaceContainer, onSurfaceContainer, surfaceContainerHigh, error, onError, custom, onCustom }) {
     const googlePixel6Ratio = 20 / 9;
     const phoneHeight = 2400;
     const phoneWidth = phoneHeight / googlePixel6Ratio;
@@ -36,7 +36,7 @@ function Phone({ primary, onPrimary, primaryContainer, onPrimaryContainer, secon
                 onPrimaryContainer={onPrimaryContainer}
                 style={{ my: `${12 * componentRatio}px` }}
             />
-            <TaskListComponent secondary={secondary} onSecondary={onSecondary} error={error} onError={onError} />
+            <TaskListComponent secondary={secondary} onSecondary={onSecondary} error={error} onError={onError} custom={custom} onCustom={onCustom} />
             <PhoneFab primaryContainer={primaryContainer} onPrimaryContainer={onPrimaryContainer} style={{ position: 'absolute', right: 0, bottom: 88 }} />
             <PhoneNavigationBar
                 surfaceContainer={surfaceContainer}
